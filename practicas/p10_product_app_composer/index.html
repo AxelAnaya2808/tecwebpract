@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ProductApp</title>
+    <link rel="stylesheet" type="text/css" href="estilosAñadidos.css">
+    <!-- BOOTSTRAP 4  -->
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+  </head>
+  <body>
+
+    <!-- BARRA DE NAVEGACIÓN  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href=".">ProductApp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto"></ul>
+          <form class="d-flex">
+            <input class="form-control mr-sm-2" name="search" id="search" type="search" placeholder="ID, marca o descripción" aria-label="Search">
+            <button class="btn btn-warning my-2 my-sm-0" type="submit">Buscar</button>
+          </form>
+      </div>
+    </nav>
+
+    <div class="container container2">
+      <div class="row p-4">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-body">
+              <!-- FORMULARIO PARA AGREGAR PRODUCTO -->
+                <fieldset class="contorno">
+                  <legend>STARKSHOES (tienda de calzado)</legend>
+                  <form id="task-form" class="task-form">
+                   
+                    <!-- Grupo: Nombre del producto | debe ser requerido y tener 100 caracteres o menos-->
+                    <div class="task-form__grupo form-label mt-4 form-group" id="grupo__nombre">
+                      <label for="nombre" class="task-form__label form-label mt-4">Nombre del producto</label>
+                      <div class="task-form__grupo-input">
+                        <input type="text" class="task-form__input form-control" name="nombre" id="name" placeholder="Tenis Lacoste">
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">El nombre del producto puede contener solo 100 carcateres, ademas solo se aceptan numeros, letras y espacios</p>
+                    </div>
+                
+                   <!-- Grupo: Marca del producto | debe ser requerida y seleccionarse de una lista de opciones. -->
+                    <div class="task-form__grupo form-group form-label mt-4" id="grupo__marca">
+                      <label for="marca" class="task-form__label form-label mt-4">Marca:</label>
+                      <div class="task-form__grupo-input">
+                        <select class="task-form__input form-select form-control" name="marca" id="marca">
+                          <option value= >Selecciona una marca</option>
+                          <option value="Adidas">Adidas</option>
+                          <option value="Nike">Nike</option>
+                          <option value="Vans">Vans</option>
+                          <option value="Pirma">Pirma</option>
+                          <option value="Charlie">Charlie</option>
+                          <option value="Lacoste">Lacoste</option>
+                          <option value="DC">DC</option>
+                          <option value="Bubble Gummers">Bubble Gummers</option>
+                        </select>
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">Selecciona una marca por favor</p>
+                    </div>
+                
+                    <!-- Grupo: Modelo del producto |  debe ser requerido, texto alfanumérico y tener 25 caracteres o menos. -->
+                    <div class="task-form__grupo form-group" id="grupo__modelo">
+                      <label for="modelo" class="task-form__label form-label mt-4">Modelo:</label>
+                      <div class="task-form__grupo-input">
+                        <input type="text" class="task-form__input form-control" name="modelo" id="modelo" placeholder="XX-000">
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">El modelo es requerido, es alfanúmerico, sin espacios.. algunos carcateres no son permitidos</p>
+                    </div>
+                
+                    <!-- Grupo: Precio del producto | mayor a 99.99  -->
+                    <div class="task-form__grupo form-group" id="grupo__precio">
+                      <label for="precio" class="task-form__label form-label mt-4">Precio del producto:</label>
+                      <div class="task-form__grupo-input">
+                        <input type="text" class="task-form__input form-control" name="precio" id="precio" placeholder="12345.00" >
+                        <div class="valid-feedback">Precio correcto</div>
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">El precio es requerido, debe ser mayor a 99.99 y es un número con 2 decimales</p>
+                    </div>
+                
+                    <!-- Grupo: Detalles del producto | deben ser opcionales y, de usarse, deben tener 250 caracteres o menos. -->
+                    <div class="task-form__grupo form-group" id="grupo__detalles">
+                      <label for="detalles" class="task-form__label form-label mt-4">Detalles del producto</label>
+                      <div class="task-form__grupo-input">
+                        <textarea rows="4" cols="60" class="task-form__input form-control" name="detalles" id="detalles" placeholder="Escribe los detalles del producto"></textarea>
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">Los detalles deben tener almenos 250 carcateres</p>
+                    </div>
+                    
+                    <!-- Grupo: Unidades del producto | deben ser requeridas y el número registrado debe ser mayor o igual a 0. -->
+                    <div class="task-form__grupo form-group" id="grupo__unidades">
+                      <label for="unidades" class="task-form__label form-label mt-4">Unidades disponibles:</label>
+                      <div class="task-form__grupo-input">
+                        <input type="text" class="task-form__input form-control" name="unidades" id="unidades" placeholder="0">
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">Las unidades son requeridas</p>
+                    </div>
+                
+                    <!-- Grupo: Imagen del producto | debe ser opcional, si no poner una por defecto -->
+                    <div class="task-form__grupo form-group" id="grupo__imagen">
+                      <label for="unidades" class="task-form__label form-label mt-4">Imagen del producto - en caso de no tener la ruta de imagen coloca lo siguiente (img/vacio.png):</label>
+                      <div class="task-form__grupo-input">
+                        <input type="text" class="task-form__input form-control" name="imagen" id="imagen" placeholder="img/vacio.png" >
+                        <i class="task-form__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="task-form__input-error">Por favor coloca</p>
+                    </div>
+                    
+                    <!-- Enunciados valido e invalido-->
+                    <div class="task-form__mensaje" id="task-form__mensaje">
+                      <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente, algunos campos son obligatorios. </p>
+                    </div>
+                    <p class="task-form__mensaje-exito" id="task-form__mensaje-exito">Formulario enviado exitosamente!</p>
+                    <div class="task-form__grupo task-form__grupo-btn-enviar">
+                      <input type="hidden" id="taskId">
+                      
+                      <button type="submit" id="enviar" class="task-form__btn btn-block text-center btn btn-success">Agregar Producto</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLA  -->
+        <div class="col-md-7">
+          <div class="card my-4 " id="task-result">
+            <div class="card-body">
+              <!-- RESULTADO -->
+              <ul id="container"></ul><ul class="text-danger" id="container2"></ul>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-sm table-dark">
+            <thead>
+              <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Descripción</td>
+              </tr>
+            </thead>
+            <tbody id="tasks"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- Lógica del Frontend -->
+    <script src="app.js"></script>
+  </body>
+
+</html>
